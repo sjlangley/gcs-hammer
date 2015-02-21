@@ -1,7 +1,11 @@
 <?php
+$key_names = [
+  '_ah_app_identity_:https://www.googleapis.com/auth/devstorage.read_only',
+  '_ah_app_identity_:https://www.googleapis.com/auth/devstorage.read_write',
+];
 
-if (!apc_clear_cache('user')) {
-  syslog(LOG_DEBUG, 'Could not clear the apc_cache');
-} else {
-  echo 'Cache Reset';
+foreach($key_names as $key) {
+  print 'Resetting: ' . $key . ' ';
+  print apc_delete($key) ? 'OK' : 'FAILED';
+  print PHP_EOL;
 }
