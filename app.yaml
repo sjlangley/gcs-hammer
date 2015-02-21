@@ -1,9 +1,18 @@
 application: gcs-hammer
 version: 1
-runtime: php
+runtime: php55
 api_version: 1
 threadsafe: true
 
 handlers:
+- url: /write_hammer
+  script: write_hammer.php
+
+- url: /cache_info
+  script: apc_cache_info.php
+
+- url: /cache_reset
+  script: apc_cache_reset.php
+
 - url: .*
   script: main.php

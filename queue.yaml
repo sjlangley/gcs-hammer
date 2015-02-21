@@ -1,0 +1,10 @@
+queue:
+- name: write-hammer-queue
+  rate: 2/s
+  max_concurrent_requests: 1
+
+- name: read-hammer-queue
+  rate: 2/s
+  max_concurrent_requests: 1
+
+
